@@ -23,6 +23,7 @@
     "hogan.js": "^3.0.2"
   },
   "devDependencies": {
+    "@inappcloud/stack-test": "git://github.com/inappcloud/stack-test.git#master",
     "mocha": "^2.2.5"
   }
 }

@@ -1,7 +1,3 @@
-var assert = require('assert');
-var test = require('mocha').test;
-var mustache = require('..');
-
 var testCases = [
   {
     name: 'render',
@@ -20,21 +16,4 @@ var testCases = [
   }
 ];
 
-testCases.forEach(function(testCase) {
-  test(testCase.name, function(done) {
-    mustache.render({}, testCase.args).then(function(ctx) {
-      if (testCase.output !== 'error') {
-        assert.equal(ctx[testCase.args.output], testCase.output);
-        done();
-      } else {
-        done(new Error('Function should have returned an error'));
-      }
-    }).catch(function(ctx) {
-      if (testCase.output === 'error') {
-        done();
-      } else {
-        done(ctx.error);
-      }
-    });
-  });
-});
+require('@inappcloud/stack-test').runTests(require('..').render, testCases);

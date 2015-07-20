@@ -1,4 +1,6 @@
-var pkg = require('@inappcloud/stack').pkg;
+var fn = require('@inappcloud/stack').fn;
 var render = require('./src/render');
 
-module.exports = pkg([render]);
+module.exports = {
+  render: fn(render)
+};
